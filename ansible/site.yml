@@ -1,0 +1,5 @@
+---
+- name: Ensure admin host is reachable
+  hosts: admin
+  roles:
+  - role: ping
