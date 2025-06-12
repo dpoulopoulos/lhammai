@@ -3,3 +3,8 @@
   hosts: admin
   roles:
   - role: ping
+
+- name: Setup libvirt host
+  hosts: admin
+  roles:
+  - role: libvirt-host
