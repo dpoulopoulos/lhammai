@@ -1,0 +1,6 @@
+---
+- name: Create/update new Debian libvirt domain
+  tags:
+  - libvirt
+  - libvirt-domain
+  ansible.builtin.import_tasks: domain.yml

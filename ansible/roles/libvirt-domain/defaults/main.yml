@@ -1,0 +1,14 @@
+---
+virt_domain_type: kvm
+virt_domain_arch: x86_64
+virt_domain_machine_type: q35
+virt_domain_os_type: hvm
+virt_domain_cpu_mode: host-passthrough
+virt_domain_num_vcpus: 16
+virt_domain_cpu_sockets: 1
+virt_domain_cpu_cores: 8
+virt_domain_cpu_threads: 2
+virt_domain_memory_mb: 49152
+virt_domain_disk_gb: 256
+virt_domain_net_type: bridge
+virt_domain_net_bridge: br0

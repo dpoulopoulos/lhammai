@@ -8,3 +8,9 @@
   hosts: admin
   roles:
   - role: libvirt-host
+
+- name: Create Debian Server
+  hosts: deb12
+  gather_facts: false
+  roles:
+  - role: libvirt-domain

@@ -1,4 +1,4 @@
-DEFAULT_ARGS = -i inventory/hosts.yml
+DEFAULT_ARGS = -i inventory/hosts.yml -i inventory/state.ini
 
 # Set this to the empty strin, to disable diff mode (on by default)
 ANSIBLE_DIFF ?= --diff
