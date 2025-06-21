@@ -6,5 +6,8 @@ ANSIBLE_DIFF ?= --diff
 all-check:
 	ansible-playbook $(ANSIBLE_ARGS) $(ANSIBLE_DIFF) $(DEFAULT_ARGS) --check site.yml
 
+all:
+	ansible-playbook $(ANSIBLE_ARGS) $(ANSIBLE_DIFF) $(DEFAULT_ARGS) site.yml
+
 test:
 	echo "No tests defined"
