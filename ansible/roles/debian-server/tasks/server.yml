@@ -1,0 +1,9 @@
+---
+- name: Install NVIDIA driver
+  ansible.builtin.include_tasks: install-nvidia-driver.yml
+
+- name: Install Docker
+  ansible.builtin.include_tasks: install-docker.yml
+
+- name: Install NVIDIA Container Toolkit
+  ansible.builtin.include_tasks: install-nvidia-container-toolkit.yml

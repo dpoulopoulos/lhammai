@@ -1,0 +1,40 @@
+---
+- name: Ensure required packages are installed (Debian)
+  ansible.builtin.apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+    update_cache: true
+    install_recommends: false
+  when: 'ansible_os_family == "Debian"'
+
+- name: Add Docker GPG key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: add docker repository to apt
+  ansible.builtin.apt_repository:
+    repo: deb https://download.docker.com/linux/debian bookworm stable
+    state: present
+
+- name: Install docker
+  ansible.builtin.apt:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  loop:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    - docker-buildx-plugin
+    - docker-compose-plugin
+
+- name: Ensure docker is active
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes

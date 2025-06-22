@@ -1,0 +1,37 @@
+---
+- name: Ensure required packages are installed (Debian)
+  ansible.builtin.apt:
+    pkg:
+      - build-essential
+      - "linux-headers-{{ ansible_kernel }}"
+    update_cache: true
+    install_recommends: false
+  when: 'ansible_os_family == "Debian"'
+
+- name: Unload nouveau
+  community.general.modprobe:
+    name: nouveau
+    state: absent
+  ignore_errors: false
+
+- name: Balcklist nouveau from initramfs
+  community.general.kernel_blacklist:
+    name: nouveau
+    state: present
+
+- name: Install the NVIDIA driver
+  ansible.builtin.pause:
+    prompt: "Press ENTER to continue after installing the NVIDIA driver."
+
+- name: Reboot the system
+  ansible.builtin.reboot:
+    msg: "Rebooting to apply NVIDIA driver changes."
+    pre_reboot_delay: 2
+    post_reboot_delay: 10
+
+- name: Verify NVIDIA driver installation
+  ansible.builtin.command:
+    cmd: nvidia-smi
+  register: nvidia_smi_output
+  changed_when: false
+  failed_when: nvidia_smi_output.rc != 0

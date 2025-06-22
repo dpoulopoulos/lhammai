@@ -1,0 +1,5 @@
+---
+- name: Setup Debian Server
+  tags:
+  - debian-server
+  ansible.builtin.import_tasks: server.yml
