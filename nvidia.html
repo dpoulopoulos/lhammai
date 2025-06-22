@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install NVIDIA drivers &mdash; Lhammai 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="https://kit.fontawesome.com/a5cfa99c7d.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Deploy an Ollama server with Docker" href="ollama.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Lhammai
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Administration Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ollama.html">Deploy an Ollama server with Docker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install NVIDIA drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-you-ll-need">What you’ll need</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedure">Procedure</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Lhammai</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Install NVIDIA drivers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nvidia.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="install-nvidia-drivers">
+<h1>Install NVIDIA drivers<a class="headerlink" href="#install-nvidia-drivers" title="Link to this heading"></a></h1>
+<p>This guide will take you through the steps of installing NVIDIA (proprietary) drivers on your system.</p>
+<section id="what-you-ll-need">
+<h2>What you’ll need<a class="headerlink" href="#what-you-ll-need" title="Link to this heading"></a></h2>
+<p>To complete this guide, you will need the following:</p>
+<ul class="simple">
+<li><p>A Debian-based system with root access.</p></li>
+<li><p>An NVIDIA GPU.</p></li>
+<li><p>An internet connection to download the necessary packages.</p></li>
+</ul>
+</section>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<p>Follow the steps below to install the NVIDIA drivers:</p>
+<ol class="arabic">
+<li><p>Connect to your Debian-based system as the root user or use <code class="docutils literal notranslate"><span class="pre">sudo</span></code> for administrative privileges.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user:~$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-
+</pre></div>
+</div>
+</li>
+<li><p>Get the link to the latest NVIDIA driver from the <a class="reference external" href="https://www.nvidia.com/en-us/drivers/">NVIDIA Driver Downloads</a>
+page, according to your GPU model and operating system. For example, you might find a link like this:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The link will look something like this:
+https://us.download.nvidia.com/XFree86/Linux-x86_64/570.169/NVIDIA-Linux-x86_64-570.169.run</p>
+</div>
+</li>
+<li><p>Download the NVIDIA driver using <code class="docutils literal notranslate"><span class="pre">wget</span></code> or <code class="docutils literal notranslate"><span class="pre">curl</span></code>. Replace the URL with the one you copied in the previous step:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root:~#<span class="w"> </span>wget<span class="w"> </span>https://us.download.nvidia.com/XFree86/Linux-x86_64/570.169/NVIDIA-Linux-x86_64-570.169.run
+</pre></div>
+</div>
+</li>
+<li><p>Make the downloaded file executable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root:~#<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>NVIDIA-Linux-x86_64-570.169.run
+</pre></div>
+</div>
+</li>
+<li><p>Run the installer with root privileges:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root:~#<span class="w"> </span>./NVIDIA-Linux-x86_64-570.169.run
+</pre></div>
+</div>
+</li>
+<li><p>Follow the on-screen instructions to complete the installation of the proprietary NVIDIA drivers:</p>
+<ol class="arabic">
+<li><p>Choose the <code class="docutils literal notranslate"><span class="pre">NVIDIA</span> <span class="pre">Proprietary</span></code> option when prompted:</p>
+<p><img alt="NVIDIA Proprietary Driver Installation" src="_images/nvidia-proptietary.png" /></p>
+</li>
+<li><p>Choose to sign the kernel module when prompted:</p>
+<p><img alt="Sign Kernel Module" src="_images/nvidia-sign.png" /></p>
+</li>
+<li><p>Choose to generate a new key pair when prompted:</p>
+<p><img alt="Generate New Key Pair" src="_images/nvidia-generate-key.png" /></p>
+</li>
+<li><p>Choose to delete the private signing key, as it is not needed after the module is signed:</p>
+<p><img alt="Delete Private Signing Key" src="_images/nvidia-delete-key.png" /></p>
+</li>
+<li><p>Take a note of the path to the X.509 certificate on the next screen, as you will need it later. It should look
+something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">nvidia</span><span class="o">/</span><span class="n">nvidia</span><span class="o">-</span><span class="n">modsign</span><span class="o">-</span><span class="n">crt</span><span class="o">-</span><span class="mf">793E20</span><span class="n">FB</span><span class="o">.</span><span class="n">der</span>
+</pre></div>
+</div>
+</li>
+<li><p>Choose to install the signed kernel module when prompted:</p>
+<p><img alt="Install Signed Kernel Module" src="_images/nvidia-install-module.png" /></p>
+</li>
+<li><p>Choose not to run <code class="docutils literal notranslate"><span class="pre">nvidia-xconfig</span></code> when prompted:</p>
+<p><img alt="NVIDIA xconfig" src="_images/nvidia-xconfig.png" /></p>
+</li>
+</ol>
+</li>
+<li><p>Add the X.509 certificate you noted earlier to the MOK (Machine Owner Key) list:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root:~#<span class="w"> </span>mokutil<span class="w"> </span>--import<span class="w"> </span>/usr/share/nvidia/nvidia-modsign-crt-793E20FB.der
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change the path to the X.509 certificate to the one you noted earlier.</p>
+</div>
+<p>You will be prompted to create a password for the MOK. Make sure to remember this password, as you will need it
+during the next boot.</p>
+</li>
+<li><p>Reboot your system:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root:~#<span class="w"> </span>reboot
+</pre></div>
+</div>
+</li>
+<li><p>During the boot process, you will be prompted to enroll the MOK. Follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Select “Enroll MOK” from the menu.</p></li>
+<li><p>Choose “Continue” to proceed.</p></li>
+<li><p>Enter the password you created earlier when prompted.</p></li>
+<li><p>Select “Yes” to confirm the enrollment.</p></li>
+<li><p>Enter the password again to confirm.</p></li>
+<li><p>Select “Reboot” to complete the process.</p></li>
+</ol>
+</li>
+<li><p>After rebooting, you can verify that the NVIDIA drivers are installed and working correctly by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root:~#<span class="w"> </span>nvidia-smi
+Sun<span class="w"> </span>Jun<span class="w"> </span><span class="m">22</span><span class="w"> </span><span class="m">11</span>:33:24<span class="w"> </span><span class="m">2025</span>
++-----------------------------------------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span>NVIDIA-SMI<span class="w"> </span><span class="m">570</span>.169<span class="w">                </span>Driver<span class="w"> </span>Version:<span class="w"> </span><span class="m">570</span>.169<span class="w">        </span>CUDA<span class="w"> </span>Version:<span class="w"> </span><span class="m">12</span>.8<span class="w">     </span><span class="p">|</span>
+<span class="p">|</span>-----------------------------------------+------------------------+----------------------+
+<span class="p">|</span><span class="w"> </span>GPU<span class="w">  </span>Name<span class="w">                 </span>Persistence-M<span class="w"> </span><span class="p">|</span><span class="w"> </span>Bus-Id<span class="w">          </span>Disp.A<span class="w"> </span><span class="p">|</span><span class="w"> </span>Volatile<span class="w"> </span>Uncorr.<span class="w"> </span>ECC<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>Fan<span class="w">  </span>Temp<span class="w">   </span>Perf<span class="w">          </span>Pwr:Usage/Cap<span class="w"> </span><span class="p">|</span><span class="w">           </span>Memory-Usage<span class="w"> </span><span class="p">|</span><span class="w"> </span>GPU-Util<span class="w">  </span>Compute<span class="w"> </span>M.<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">                                         </span><span class="p">|</span><span class="w">                        </span><span class="p">|</span><span class="w">               </span>MIG<span class="w"> </span>M.<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="o">=========================================</span>+<span class="o">========================</span>+<span class="o">======================</span><span class="p">|</span>
+<span class="p">|</span><span class="w">   </span><span class="m">0</span><span class="w">  </span>NVIDIA<span class="w"> </span>GeForce<span class="w"> </span>RTX<span class="w"> </span><span class="m">3060</span><span class="w">        </span>Off<span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">00000000</span>:00:05.0<span class="w"> </span>Off<span class="w"> </span><span class="p">|</span><span class="w">                  </span>N/A<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span><span class="m">0</span>%<span class="w">   </span>62C<span class="w">    </span>P0<span class="w">             </span>47W<span class="w"> </span>/<span class="w">  </span>170W<span class="w"> </span><span class="p">|</span><span class="w">       </span>0MiB<span class="w"> </span>/<span class="w">  </span>12288MiB<span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="m">0</span>%<span class="w">      </span>Default<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">                                         </span><span class="p">|</span><span class="w">                        </span><span class="p">|</span><span class="w">                  </span>N/A<span class="w"> </span><span class="p">|</span>
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+<span class="p">|</span><span class="w"> </span>Processes:<span class="w">                                                                              </span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>GPU<span class="w">   </span>GI<span class="w">   </span>CI<span class="w">              </span>PID<span class="w">   </span>Type<span class="w">   </span>Process<span class="w"> </span>name<span class="w">                        </span>GPU<span class="w"> </span>Memory<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w">        </span>ID<span class="w">   </span>ID<span class="w">                                                               </span>Usage<span class="w">      </span><span class="p">|</span>
+<span class="p">|</span><span class="o">=========================================================================================</span><span class="p">|</span>
+<span class="p">|</span><span class="w">  </span>No<span class="w"> </span>running<span class="w"> </span>processes<span class="w"> </span>found<span class="w">                                                             </span><span class="p">|</span>
++-----------------------------------------------------------------------------------------+
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ollama.html" class="btn btn-neutral float-left" title="Deploy an Ollama server with Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Dimitris Poulopoulos.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
