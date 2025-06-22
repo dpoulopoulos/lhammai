@@ -35,4 +35,5 @@ For any questions or issues, please contact Dimitris Poulopoulos dimitris.a.poul
    :maxdepth: 1
    :caption: Administration Guides:
 
+   ollama
    nvidia
