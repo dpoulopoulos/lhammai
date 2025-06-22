@@ -1,0 +1,40 @@
+---
+- name: Run ollama container with GPU support
+  community.docker.docker_container:
+    name: ollama
+    image: ollama/ollama
+    state: started
+    detach: yes
+    restart_policy: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    device_requests:
+      - driver: nvidia
+        count: -1 # Use all available GPUs
+        capabilities: [ [ "gpu" ] ]
+
+- name: Serve DeepSeek R1 (14B) model
+  ansible.builtin.shell:
+    cmd: "docker exec ollama ollama run {{ ollama_model }}"
+
+- name: Interact with the Ollama API
+  ansible.builtin.uri:
+    url: http://127.0.0.1:11434/api/generate
+    method: POST
+    body_format: json
+    body:
+      model: "{{ ollama_model }}"
+      prompt: "Why is the sky blue?"
+      stream: false # Set to false to get the full response at once
+    status_code: 200
+  register: ollama_api_response
+
+- name: Display the full API response object
+  ansible.builtin.debug:
+    var: ollama_api_response.json
+
+- name: Display just the model's content from the API response
+  ansible.builtin.debug:
+    msg: "{{ ollama_api_response.json.response }}"

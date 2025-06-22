@@ -1,0 +1,5 @@
+---
+- name: Setup Ollama Server
+  tags:
+  - ollama-server
+  ansible.builtin.import_tasks: ollama.yml
